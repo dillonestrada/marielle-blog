@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'Articles', href: '/articles', current: false },
+  { name: 'Posts', href: '/posts', current: false },
   { name: 'Contact', href: '/contact', current: false },
 ];
 

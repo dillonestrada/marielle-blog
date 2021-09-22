@@ -1,14 +1,36 @@
-import axios from 'axios';
-import Head from 'next/head';
-import Image from 'next/image';
-import { useEffect } from 'react';
-import styles from '../styles/Home.module.css';
-import Articles from '../components/articles';
+import Link from 'next/link';
+import { stringify } from 'postcss';
+import { useEffect, useState } from 'react';
+import { getAllPostsFromServer } from '../lib/utils';
 
-export default function Home() {
+export default function Blog() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(async () => {
+    let mounted = true;
+    if (mounted) {
+      const postsFromServer = await getAllPostsFromServer();
+      setPosts(postsFromServer);
+    }
+    return () => (mounted = false);
+  }, []);
+
   return (
-    <div className="max-w-full">
-      <Articles></Articles>
+    <div>
+      <p>List of posts:</p>
+      <ul>
+        {posts
+          ? posts.map(function (post, id) {
+              return (
+                <li key={id}>
+                  <Link href={'/posts/' + post.slug}>
+                    <a>{post.title.rendered}</a>
+                  </Link>
+                </li>
+              );
+            })
+          : ''}
+      </ul>
     </div>
   );
 }
