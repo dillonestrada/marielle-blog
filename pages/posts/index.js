@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Post from '../../components/Post';
 import { getAllPostsFromServer } from '../../lib/utils';
-import Masonry from 'react-masonry-component';
+import styles from '../../styles/PostsPage.module.scss';
 
 export default function PostPage() {
   const router = useRouter();
@@ -36,7 +36,7 @@ export default function PostPage() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.grid}>
       {/* <div className="flex flex-col items-center justify-center min-h-screen">
         <Head>
           <title>Aeeiee WordPress React Demo</title>
@@ -45,17 +45,14 @@ export default function PostPage() {
         <main className="flex flex-col items-center flex-1 px-20 py-10">
           <h1 className="text-6xl font-bold mt-5 mb-5">Blog</h1>
           <p className="text-xl mb-5">WordPress as a Headless CMS with React</p> */}
-      {posts && (
-        <Masonry options={masonryOptions}>
-          {posts.map((post, id) => {
-            return (
-              <div key={id}>
-                <Post post={post} />
-              </div>
-            );
-          })}
-        </Masonry>
-      )}
+      {posts &&
+        posts.map((post, id) => {
+          return (
+            <div key={id}>
+              <Post post={post} />
+            </div>
+          );
+        })}
     </div>
   );
 }

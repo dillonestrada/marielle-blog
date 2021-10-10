@@ -1,0 +1,61 @@
+@use 'sass:map';
+@import './variables.scss';
+
+.grid {
+  display: grid;
+}
+
+@media screen and (max-width: map-get($breakpoints, 'xs') - 1px) {
+  .grid {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(map-get($image-widths, 'xxs'), 1fr)
+    );
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'xs')) and (max-width: map-get($breakpoints, 'sm') - 1px) {
+  .grid {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(map-get($image-widths, 'xs'), 1fr)
+    );
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'sm')) and (max-width: map-get($breakpoints, 'md') - 1px) {
+  .grid {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(map-get($image-widths, 'sm'), 1fr)
+    );
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'md')) and (max-width: map-get($breakpoints, 'lg') - 1px) {
+  .grid {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(map-get($image-widths, 'md'), 1fr)
+    );
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'lg')) and (max-width: map-get($breakpoints, 'xl') - 1px) {
+  .grid {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(map-get($image-widths, 'lg'), 1fr)
+    );
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'xl')) {
+  .grid {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(map-get($image-widths, 'xl'), 1fr)
+    );
+  }
+}

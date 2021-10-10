@@ -3,7 +3,7 @@ import parse from 'html-react-parser';
 import { getAuthor, getFeaturedImage } from '../../lib/utils';
 import { POSTS_API_URL } from '../../lib/constants';
 import Head from 'next/head';
-import styles from '../../styles/Post.module.css';
+import styles from '../../styles/PostPage.module.scss';
 
 export default function Post({ title, featuredImg, author, content, date }) {
   return (

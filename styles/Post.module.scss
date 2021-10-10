@@ -1,0 +1,33 @@
+@use 'sass:map';
+@import './variables.scss';
+
+@media screen and (max-width: map-get($breakpoints, 'xs') - 1px) {
+  .postImage {
+    width: map-get($image-widths, 'xxs');
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'xs')) and (max-width: map-get($breakpoints, 'sm') - 1px) {
+  .postImage {
+    width: map-get($image-widths, 'xs');
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'sm')) and (max-width: map-get($breakpoints, 'md') - 1px) {
+  .postImage {
+    width: map-get($image-widths, 'sm');
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'md')) and (max-width: map-get($breakpoints, 'lg') - 1px) {
+  .postImage {
+    width: map-get($image-widths, 'md');
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'lg')) and (max-width: map-get($breakpoints, 'xl') - 1px) {
+  .postImage {
+    width: map-get($image-widths, 'lg');
+  }
+}
+@media screen and (min-width: map-get($breakpoints, 'xl')) {
+  .postImage {
+    width: map-get($image-widths, 'xl');
+  }
+}

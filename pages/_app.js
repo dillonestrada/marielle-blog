@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
 import React from 'react';
 
 // Store Strapi Global object in context

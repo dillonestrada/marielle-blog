@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { getAuthor, getFeaturedImage } from '../lib/utils';
 import parse from 'html-react-parser';
+import styles from '../styles/Post.module.scss';
+
 export default function Post({ post }) {
   const [postImgAndAuthor, setPostImgAndAuthor] = useState({
     featImgUrl: '',
@@ -25,10 +27,10 @@ export default function Post({ post }) {
     };
   }, []);
   return (
-    <div className="flex flex-col items-center flex-1 px-20 py-10">
+    <div className="flex flex-col items-center flex-1">
       <div className="flex justify-center">
         <img
-          className="excerpt-img mb-5"
+          className={styles.postImage}
           src={
             postImgAndAuthor ? postImgAndAuthor.featImgUrl : '/aeeiee-logo.png'
           }
